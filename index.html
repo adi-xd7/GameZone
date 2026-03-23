@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Zone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="home-screen">
+      <p class="site-title">🎮 Game Zone</p>
+      <p class="site-sub">Pick a game and start playing!</p>
+      <div class="card-container">
+        <div class="game-card" onclick="showGame('rps')">
+          <span class="card-emoji">✂️</span>
+          <p class="card-title">Rock Paper Scissors</p>
+          <p class="card-desc">Beat the computer!</p>
+          <button class="card-btn">Play</button>
+        </div>
+
+        <div class="game-card" onclick="showGame('num')">
+          <span class="card-emoji">🔢</span>
+          <p class="card-title">Number Guessing</p>
+          <p class="card-desc">Guess 1–100 in 10 tries</p>
+          <button class="card-btn">Play</button>
+        </div>
+
+        <div class="game-card" onclick="showGame('ttt')">
+          <span class="card-emoji">⭕</span>
+          <p class="card-title">Tic Tac Toe</p>
+          <p class="card-desc">X vs O, 2 players!</p>
+          <button class="card-btn">Play</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="rps-screen" class="game-screen">
+      <button class="back-btn" onclick="showHome()">← Back to Home</button>
+      <p class="game-title">Rock Paper Scissors</p>
+
+      <button class="movebutton" onclick="rpsPlay('Rock')">🪨</button>
+      <button class="movebutton" onclick="rpsPlay('Paper')">📄</button>
+      <button class="movebutton" onclick="rpsPlay('Scissors')">✂️</button>
+
+      <p class="rps-outcome" id="rps-outcome"></p>
+      <p class="rps-moves" id="rps-moves"></p>
+      <p class="rps-score" id="rps-score"></p>
+
+      <button class="resetbutton" onclick="rpsReset()">Reset Score</button>
+      <button class="autobut" id="rps-auto-btn" onclick="rpsAutoplay()">
+        Auto Play
+      </button>
+    </div>
+
+    <div id="num-screen" class="game-screen">
+      <button class="back-btn" onclick="showHome()">← Back to Home</button>
+
+      <div id="wrapper">
+        <h1>Number Guessing Game</h1>
+        <p>Try and guess a random number between 1 and 100.</p>
+        <p>You have 10 attempts to guess the right number.</p>
+        <br />
+        <div class="form">
+          <label for="guessField" id="guess">Guess a number</label>
+          <input
+            type="text"
+            id="guessField"
+            class="guessField"
+            placeholder="Enter number"
+          />
+          <button id="subt" onclick="numSubmit()">Submit Guess</button>
+        </div>
+        <div class="resultParas">
+          <p>Previous Guesses: <span class="guesses" id="numGuesses"></span></p>
+          <p>
+            Guesses Remaining:
+            <span class="lastResult" id="numRemaining">10</span>
+          </p>
+          <p class="lowOrHi" id="numMessage"></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="ttt-screen" class="game-screen">
+      <button class="back-btn" onclick="showHome()">← Back to Home</button>
+      <p class="game-title">Tic Tac Toe</p>
+
+      <p class="ttt-status" id="ttt-status">Player X's turn</p>
+      <p class="ttt-score" id="ttt-score">X: 0 | O: 0 | Ties: 0</p>
+
+      <div class="ttt-board">
+        <button class="ttt-cell" onclick="tttClick(0)"></button>
+        <button class="ttt-cell" onclick="tttClick(1)"></button>
+        <button class="ttt-cell" onclick="tttClick(2)"></button>
+        <button class="ttt-cell" onclick="tttClick(3)"></button>
+        <button class="ttt-cell" onclick="tttClick(4)"></button>
+        <button class="ttt-cell" onclick="tttClick(5)"></button>
+        <button class="ttt-cell" onclick="tttClick(6)"></button>
+        <button class="ttt-cell" onclick="tttClick(7)"></button>
+        <button class="ttt-cell" onclick="tttClick(8)"></button>
+      </div>
+
+      <button class="ttt-reset" onclick="tttNewGame()">New Game</button>
+      <button class="ttt-reset" onclick="tttResetScore()">Reset Score</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
